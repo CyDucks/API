@@ -25,10 +25,13 @@ async def predict():
 
     predicted_coordinates = {}
 
-    for act_no in df.columns[2:]:  
-        act_data = df[df[act_no] == 1]  
-        act_coordinates = act_data[['latitude', 'longitude']].values.tolist()  
-        predicted_coordinates[act_no] = act_coordinates 
+    for act_no in df.columns[2:]:
+        act_data = df[df[act_no] == 1]
+        act_coordinates = act_data[['latitude', 'longitude']].values.tolist()
+
+        act_coordinates_formatted = [{"lat": lat, "lng": lng} for lat, lng in act_coordinates]
+
+        predicted_coordinates[act_no] = act_coordinates_formatted
 
     return predicted_coordinates
 
