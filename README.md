@@ -1,2 +1,2 @@
 # API
-All the fastAPI source code for the backend here 
+All the fastAPI source code for the Satark backend .
